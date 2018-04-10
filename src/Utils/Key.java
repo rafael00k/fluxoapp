@@ -24,5 +24,10 @@ public class Key {
         result = 31 * result + y;
         return result;
     }
+    @Override
+    public String toString() {
+    	
+    	return "de :"+this.x+"para"+this.y;    			
+    }
 
 }

@@ -13,21 +13,24 @@ public class MatrizBarraUtils {
 		
 		for (Linha linha : linhas) {
 			 for (int i=1;i<= quantidaDeBarras;i++) {
-				 Key key = new Key (i,i);
-				 if (matrizYbarra.get(key). = null) {
-					 
-				 }
+				  
 				 
 				 if (linha.getDe()==i || linha.getPara()==i) {
-					  aux = matrizYbarra.get(new Key(i,i)).add(linha.getImpedancia());
+					 if (matrizYbarra.get(new Key (i,i)) != null) {
+						 matrizYbarra.put(new Key (i,i),matrizYbarra.get(new Key (i,i)).add(linha.getImpedancia()) );						 
+					 } else {
+						 matrizYbarra.put(new Key (i,i), linha.getImpedancia());
+					 }
 					  
 				 }else {
+					 matrizYbarra.put(new Key (linha.getDe(),linha.getPara()),  linha.getImpedancia().negate());
 					 
 				 }
 				 
 			 }
 			
 		}
+		return matrizYbarra;
 	}	
 
 }

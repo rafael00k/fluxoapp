@@ -1,12 +1,17 @@
 package Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
 
 import org.apache.commons.math3.complex.Complex;
 
 import Utils.ComplexUtils;
+import Utils.Key;
 import Utils.MatrizBarraUtils;
 import modelo.Linha;
+import java.util.Map;
 
 public class Teste {
 
@@ -26,12 +31,17 @@ public class Teste {
 		linhas.add(new Linha(1, 2, 32.75, 47.2));
 		linhas.add(new Linha(1, 3, 32.75, 47.2));
 		linhas.add(new Linha(2, 3, 32.75, 47.2));
-		Complex[][] matrizbarra = new MatrizBarraUtils().matrizBarra(linhas, 3, 3);
-		for (int i=1;i<matrizbarra.length;i++) {
-			for (int j=1;j<matrizbarra[0].length;j++) {
-				System.out.println("Y "+i+j+" "+utils.FormataComplexoAlgebrico(matrizbarra[i][j]));
-			}
-		}
+		HashMap<Key,Complex> matrizTeste = new HashMap<>();
+		matrizTeste = MatrizBarraUtils.MatrizYBarra(linhas, 3, 3);
+		Set entrySet = matrizTeste.entrySet();
+		Iterator it = entrySet.iterator();
+		 while(it.hasNext()){
+		       Map.Entry me = (Map.Entry)it.next();
+		       System.out.println("Indice: "+me.getKey() + 
+		       "" + 
+		       " valor: "+me.getValue());
+		   }
+		 
 	}
 
 }
