@@ -31,17 +31,36 @@ public class Teste {
 		linhas.add(new Linha(1, 2, 32.75, 47.2));
 		linhas.add(new Linha(1, 3, 32.75, 47.2));
 		linhas.add(new Linha(2, 3, 32.75, 47.2));
+		System.out.println("MatrizBarra");
 		HashMap<Key,Complex> matrizTeste = new HashMap<>();
 		matrizTeste = MatrizBarraUtils.MatrizYBarra(linhas, 3, 3);
-		Set entrySet = matrizTeste.entrySet();
-		Iterator it = entrySet.iterator();
-		 while(it.hasNext()){
-		       Map.Entry me = (Map.Entry)it.next();
-		       System.out.println("Indice: "+me.getKey() + 
-		       "" + 
-		       " valor: "+me.getValue());
-		   }
-		 
+		for (Key key : matrizTeste.keySet()) {
+			System.out.println("Indice: "+key + 
+				       "" + 
+				       " valor: "+matrizTeste.get(key));
+			
+		}
+		
+		 System.out.println("Matriz G");
+		 HashMap<Key,Double> matrizGTeste = new HashMap<>();
+		 matrizGTeste = MatrizBarraUtils.MatrizCondutancia(matrizTeste);
+		 for (Key key : matrizGTeste.keySet() ) {
+			 System.out.println("Indice: "+key + 
+				       "" + 
+				       " valor: "+matrizGTeste.get(key));
+			 
+			
+		}
+		 System.out.println("Matriz B"); 
+		 HashMap<Key,Double> matrizBTeste = new HashMap<>();
+		 matrizGTeste = MatrizBarraUtils.MatrizSusceptancia(matrizTeste);
+		 for (Key key : matrizGTeste.keySet() ) {
+			 System.out.println("Indice: "+key + 
+				       "" + 
+				       " valor: "+matrizGTeste.get(key));
+			 
+			
+		}
 	}
 
 }
