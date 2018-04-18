@@ -29,5 +29,11 @@ public class Key {
     	
     	return "de :"+this.x+"para"+this.y;    			
     }
+    public int getX() {
+    return this.x;	
+    }
+    public int getY() {
+    return this.y;	
+    }
 
 }
